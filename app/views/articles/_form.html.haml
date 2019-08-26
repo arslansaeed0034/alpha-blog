@@ -1,0 +1,16 @@
+= link_to "show all article",articles_path
+- if @article.errors.any?
+	%ul
+		- @article.errors.full_messages.each do |msg|
+			%li
+				#{msg}
+= form_for @article, html: {role: "form"} do |f|
+	.form-group
+		= f.label :title
+	.form-group
+		= f.text_field :title, {class: "form-control"}
+	.form-group
+		= f.label :Description
+	.form-group
+		= f.text_area :description, {class: "form-control"}
+	= f.submit "Submit", class: "btn btn-default"
