@@ -1,19 +1,20 @@
-%h1	Showing All Articless
-= link_to "create new article",new_article_path
+%h1.col-xs-offset-center Showing All Articless
+.form-group
+	= link_to "create new article",new_article_path,{class: "btn btn-primary"}
 %table
 	%tr
 		%th Tittle
 		%th Description
 		%th 	Action	
 	- @article.each do |article|
-		%tr
-			%td
-				#{article.title}
-			%td
-				#{article.description}
-			%td
-				= link_to "show",article_path(article)
-			%td
-				= link_to "Edit",edit_article_path(article)
-			%td 
-				= link_to 'Destroy', article_path(article),method: :delete,data: { confirm: 'Are you sure?' }
+		.row
+			.col-xs-12
+				.well.well-lg
+					%h2 title
+					#{article.title}
+					%h2 Description
+					#{article.description}
+					.form-group
+					= link_to "Show",article_path(article),{class: "btn btn-success"}
+					= link_to "Edit",edit_article_path(article),{class: "btn btn-success"}
+					= link_to 'Destroy', article_path(article),method: :delete,data: { confirm: 'Are you sure?' },class: "btn btn-danger"

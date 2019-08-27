@@ -1,5 +1,8 @@
 %html 
   %head 
     %title Awesome Haml Template 
+    =render 'layouts/navbar'
     #main{:role => "main"}
+    .container
       = yield
+    =render 'layouts/footer'
