@@ -48,7 +48,7 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem "aws-sdk-s3", require: false
+  gem "aws-sdk-s3", require: false  #production ma problem kr ra tha is lia yeh gem add kia
 end
 
 group :test do
@@ -61,4 +61,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
