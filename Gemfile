@@ -8,7 +8,7 @@ gem "haml"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -46,6 +46,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg', '>= 0.18', '< 2.0'
 end
 
 group :test do
