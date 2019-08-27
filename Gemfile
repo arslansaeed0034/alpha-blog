@@ -48,7 +48,6 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem "aws-sdk-s3", require: false  #production ma problem kr ra tha is lia yeh gem add kia
 end
 
 group :test do
