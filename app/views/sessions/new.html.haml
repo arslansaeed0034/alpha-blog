@@ -1,0 +1,16 @@
+%h1 login
+.row
+	.col-xs-10
+		= form_for :sessions, html: {role: "form",url: login_path} do |f|
+			.form-group
+				.control-label.col-sm-2
+					= f.label :Email
+				.control-label.col-sm-10
+					= f.text_field :email, {class: "form-control",placeholder:"SA"}
+
+			.form-group
+				.control-label.col-sm-2
+					= f.label :password
+				.control-label.col-sm-10
+					= f.password_field :password, {class: "form-control"}
+					= f.submit "login", {class: "btn btn-primary"}

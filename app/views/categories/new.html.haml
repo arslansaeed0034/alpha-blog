@@ -1,0 +1,22 @@
+.row
+= javascript_include_tag "categories"
+.col-xs-12
+  = form_for @category, html: {role: "form"} do |f|
+    .form-group
+      .control-label.col-sm-2
+        = f.label :name
+      .control-label.col-sm-10
+        = f.text_field :name, {class: "form-control"}
+        = f.submit "Create Article category", {class: "btn btn-primary"}
+   
+
+.row
+  .col-xs-12.myclass
+    %h1 Ajax Task
+    = form_for @article, html: {role: "form"} do |f|
+      .forrm-group
+        = f.collection_select :category_ids, Category.all, :id, :name do |b|
+          %li
+            = b.id
+
+.articles_name

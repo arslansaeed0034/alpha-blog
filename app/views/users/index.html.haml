@@ -1,0 +1,23 @@
+= link_to "Add new user",signup_path,{class: "btn btn-primary"}
+%h1 All alpha bloggers
+%table
+	%tr
+		%th Tittle
+		%th Description
+		%th 	Action	
+	- @users.each do |user|
+		.row
+			.col-xs-12
+				.well.well-lg
+					.article-details
+						%h2 username
+						#{user.username}
+						%h2 Email
+						#{user.email}
+						%h3 total articles
+						=pluralize(user.articles.count,"article") if user.articles
+	
+					.actions
+						= link_to "Show",user_path(user),{class: "btn btn-success"}
+		.div
+			=will_paginate

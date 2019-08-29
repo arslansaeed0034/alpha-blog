@@ -1,3 +1,13 @@
 .jumbotron.center
 	%h1 Alpha Blog
-	= link_to "signup Now","#",class: "btn btn-primary xlarge"
+	.well.col-xs-8.col-xs-offset-2
+		= link_to('Devise gem Login', new_users_model_session_path,class: "btn btn-primary xlarge") 
+		=link_to(' devise Edit user', edit_users_model_registration_path,class: "btn btn-primary xlarge")
+
+		= button_to "devise gem Logout", destroy_user_admin_session_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn-alert'
+	.well.col-xs-8.col-xs-offset-2
+		= link_to('my users signup',signup_path,class: "btn btn-primary xlarge") 
+		= link_to('All users',users_path,class: "btn btn-primary xlarge") 
+		= link_to('Login',login_path,class: "btn btn-primary xlarge") 
+		= link_to('Create categories',new_category_path,class: "btn btn-primary xlarge") 
+		= link_to('Create Article',new_article_path,class: "btn btn-primary xlarge") 

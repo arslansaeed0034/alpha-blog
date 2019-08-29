@@ -1,0 +1,27 @@
+- if @user.errors.any?
+	%ul
+		- @user.errors.full_messages.each do |msg|
+			%li
+				#{msg}
+.row
+	.col-xs-10
+		= form_for @user, html: {role: "form"} do |f|
+			.form-group
+				.control-label.col-sm-2
+					= f.label :username
+				.control-label.col-sm-10
+					= f.text_field :username, {class: "form-control"}
+
+
+			.form-group
+				.control-label.col-sm-2
+					= f.label :Email
+				.control-label.col-sm-10
+					= f.text_field :email, {class: "form-control"}
+
+			.form-group
+				.control-label.col-sm-2
+					= f.label :password
+				.control-label.col-sm-10
+					= f.password_field :password, {class: "form-control"}
+					= f.submit "Signup", {class: "btn btn-primary"}

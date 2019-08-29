@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+	before_action :authenticate_user_admin!
+
 	def new
 		@article = Article.new 
 	end
@@ -6,6 +8,7 @@ class ArticlesController < ApplicationController
 	def create
 		# render plain:params[:article]
 		@article = Article.new(article_parms)
+		@article.user = User.first
 		if @article.save
 			flash[:notice] = "Article was sucessfully created"
 			redirect_to article_path(@article)	
@@ -16,10 +19,11 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+
 	end
 
 	def index
-		@article = Article.all
+		@article = Article.paginate(page: params[:page],per_page:3)
 	end
 
 	def edit
@@ -43,6 +47,7 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_parms
-		params.require(:article).permit(:title,:description)
+		params.require(:article).permit(:title,:description,category_ids:[])
 	end
+
 end

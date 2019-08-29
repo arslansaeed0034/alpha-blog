@@ -1,0 +1,7 @@
+%h1 Profile user
+.row
+	.col-md-12.col
+	%h1 username: #{@user.username}
+	%h3 Articles:
+	=render('articles/article',obj:@user.articles)
+	=will_paginate @users_article
